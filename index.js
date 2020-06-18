@@ -52,13 +52,13 @@ window.addEventListener('load', async () => {
     $('#loader').show();
     console.log('##### debuggin 1');
     console.log('##### before2:',Ae);
-    Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
+    /*Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
         Ae.Universal({
               nodes: [{ name: 'local', instance: node }]
             }).then(aeInstance => {
               aeInstance.height().then(height => {
                 console.log("Current Block Height:" + height)
-              })
+              })*/
         
     //client = await Ae.Aepp();
     console.log('##### client2:');
