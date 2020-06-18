@@ -50,6 +50,7 @@ function renderMemes() {
 
 window.addEventListener('load', async () => {
     $('#loader').show();
+    console.log('##### debuggin 1');
     console.log('##### before2:',Ae);
     Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
         Ae.Universal({
