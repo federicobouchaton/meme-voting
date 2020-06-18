@@ -50,9 +50,17 @@ function renderMemes() {
 
 window.addEventListener('load', async () => {
     $('#loader').show();
-    console.log('##### before:',Ae);
-    client = await Ae.Aepp();
-    console.log('##### client:',client);
+    console.log('##### before2:',Ae);
+    Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
+        Ae.Universal({
+              nodes: [{ name: 'local', instance: node }]
+            }).then(aeInstance => {
+              aeInstance.height().then(height => {
+                console.log("Current Block Height:" + height)
+              })
+        
+    //client = await Ae.Aepp();
+    console.log('##### client2:');
     /*const contract = await client.getContractInstance(contractSource, {contractAdress});
     console.log('##### contract:',contract);
     const calledGet = await contract.call('getMemesLength',[],{callStatic:true}).catch(e => console.error(e));
