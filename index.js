@@ -50,7 +50,16 @@ function renderMemes() {
 
 window.addEventListener('load', async () => {
     $('#loader').show();
-    console.log('##### debuggin 1');
+    console.log('##### debuggin 3');
+    Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
+            Ae.Universal({
+                  nodes: [{ name: 'local', instance: node }]
+                }).then(aeInstance => {
+                  aeInstance.height().then(height => {
+                    console.log("Current Block Height boucha 3:" + height)
+                  })
+                })
+        })
     //console.log('##### before2:',Ae);
     /*Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
         Ae.Universal({
