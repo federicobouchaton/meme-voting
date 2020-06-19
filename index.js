@@ -50,16 +50,19 @@ function renderMemes() {
 
 window.addEventListener('load', async () => {
     $('#loader').show();
-    console.log('##### debuggin 3');
-    Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
+    console.log('##### debuggin 4');
+    /*Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
             Ae.Universal({
                   nodes: [{ name: 'local', instance: node }]
                 }).then(aeInstance => {
                   aeInstance.height().then(height => {
                     console.log("Current Block Height boucha 3:" + height)
                   })
-                })
-        })
+                });
+            Ae.contractSource({
+
+            })
+        })*/
     //console.log('##### before2:',Ae);
     /*Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
         Ae.Universal({
@@ -69,7 +72,8 @@ window.addEventListener('load', async () => {
                 console.log("Current Block Height:" + height)
               })*/
         
-    //client = await Ae.Aepp();
+    client = await Ae.Aepp();
+    client.then( res => console.log('owqijfoqwijefoqiwjf bouchaaaaa'));
     console.log('##### client2:');
     /*const contract = await client.getContractInstance(contractSource, {contractAdress});
     console.log('##### contract:',contract);
