@@ -1,3 +1,28 @@
+// Use Flavor
+import Ae from '@aeternity/aepp-sdk/es/ae/universal' // or other flavor
+import MemoryAccount from '@aeternity/aepp-sdk/es/account/memory' // or other flavor
+import Node from '@aeternity/aepp-sdk/es/node' // or other flavor
+import { AE_AMOUNT_FORMATS } from '@aeternity/aepp-sdk/es/utils/amount-formatter'
+
+const NODE_URL = 'https://sdk-testnet.aepps.com'
+const COMPILER_URL = 'COMPILER_URL' // required for using Contract
+const ACCOUNT = MemoryAccount({ keypair: { secretKey: 'A_PRIV_KEY', publicKey: 'A_PUB_ADDRESS' } })
+
+(async function () {
+  const nodeInstance = await Node({ url: NODE_URL })
+  const sdkInstance = await Ae({
+     compilerUrl: COMPILER_URL,
+     nodes: [ { name: 'test-net', instance: nodeInstance } ],
+     accounts: [ ACCOUNT ]
+  })
+
+  await sdkInstance.height() // get top block height
+  console.log('Current Block Height:', height)
+  
+  await sdkInstance.spend(1, 'ak_asd23dasdasda...', { denomination: AE_AMOUNT_FORMATS.AE }) // spend one AE
+
+})()
+
 const contractSource = `
     payable contract MemeVote = 
     
@@ -50,7 +75,7 @@ function renderMemes() {
 
 window.addEventListener('load', async () => {
     $('#loader').show();
-    console.log('##### debuggin 4');
+    console.log('##### debuggin 5');
     /*Ae.Node({ url: 'https://sdk-testnet.aepps.com' }).then(node => {
             Ae.Universal({
                   nodes: [{ name: 'local', instance: node }]
@@ -72,8 +97,7 @@ window.addEventListener('load', async () => {
                 console.log("Current Block Height:" + height)
               })*/
         
-    client = await Ae.Aepp();
-    client.then( res => console.log('owqijfoqwijefoqiwjf bouchaaaaa'));
+    //client = await Ae.Aepp();
     console.log('##### client2:');
     /*const contract = await client.getContractInstance(contractSource, {contractAdress});
     console.log('##### contract:',contract);
